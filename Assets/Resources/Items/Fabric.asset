@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ea47786cc85ce4b982348ef45ab085, type: 3}
+  m_Name: Fabric
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 768e51ff9ad22cf45b4a3831991398f7, type: 3}
+  discoveryText: The perfect fabric for a sail.
+  discoveryTitle: 
+  ID: 119

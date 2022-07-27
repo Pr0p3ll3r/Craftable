@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ItemCounter : MonoBehaviour
 {
-    public TextMeshProUGUI counterText;
-    public SlicedFilledImage progressBar;
+    [SerializeField] private TextMeshProUGUI counterText;
+    [SerializeField] private SlicedFilledImage progressBar;
     private int totalItems;
 
     void Start()

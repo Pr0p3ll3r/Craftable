@@ -9,7 +9,7 @@ public class ResetGame : MonoBehaviour
 
     void Start()
     {
-        animationController = this.GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     public void OpenWindow()

@@ -7,18 +7,18 @@ public class Crafter : MonoBehaviour
 {
     public static Crafter Instance;
 
-	public Item slot01;
-	public Item slot02;
-	public Item slot03;
+	[SerializeField] private Item slot01;
+	[SerializeField] private Item slot02;
+	[SerializeField] private Item slot03;
 
-	public Image slot01Icon;
-	public Image slot02Icon;
-	public Image slot03Icon;
+	[SerializeField] private Image slot01Icon;
+	[SerializeField] private Image slot02Icon;
+	[SerializeField] private Image slot03Icon;
 
-	public Recipe[] recipes;
+	[SerializeField] private Recipe[] recipes;
 
 	private int currentSlot = 1;
-	public int numberOfSlots = 2;
+	[SerializeField] private int numberOfSlots = 2;
 
 	private Recipe tempRecipe;
 

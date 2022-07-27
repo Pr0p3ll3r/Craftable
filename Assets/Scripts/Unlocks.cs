@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Unlocks : MonoBehaviour
 {
-    public Inventory inventory;
-    public List<Reward> rewards;
+    private Inventory inventory;
+    private List<Reward> rewards;
 
     void Start()
     {

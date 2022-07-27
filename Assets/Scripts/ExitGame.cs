@@ -6,7 +6,7 @@ public class ExitGame : MonoBehaviour
 
     void Start()
     {
-        animationController = this.GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     void Update()

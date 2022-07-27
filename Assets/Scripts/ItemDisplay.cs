@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ItemDisplay : MonoBehaviour {
-
+public class ItemDisplay : MonoBehaviour
+{
 	public Item item;
-	public Image icon;
-	public TextMeshProUGUI nameText;
+	[SerializeField] private Image icon;
+	[SerializeField] private TextMeshProUGUI nameText;
 
 	public void Setup (Item _item)
 	{
@@ -16,5 +16,4 @@ public class ItemDisplay : MonoBehaviour {
 		icon.sprite = item.icon;
 		nameText.text = item.name;
 	}
-
 }

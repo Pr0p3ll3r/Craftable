@@ -7,11 +7,11 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
 
     public List<Item> items;
-    public List<Item> startItems;
+    [SerializeField] private List<Item> startItems;
 
-    public GameObject itemPrefab;
-    public Transform itemPool;
-    public GameObject tutorial;
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private Transform itemPool;
+    [SerializeField] private GameObject tutorial;
 
     private Item[] allItems;
 

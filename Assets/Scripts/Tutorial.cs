@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public float delay = 0.1f;
-    public string tut1;
-    public string tut2;
-    public string tut3;
-    public string tut4;
+    [SerializeField] private float delay = 0.1f;
+    [SerializeField] private string tut1;
+    [SerializeField] private string tut2;
+    [SerializeField] private string tut3;
+    [SerializeField] private string tut4;
     private string currentText = "";
-    public TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI text;
     private Animator animator;
     private int tut = 1;
     private Coroutine co;

@@ -2,14 +2,14 @@
 
 public class RateGame : MonoBehaviour
 {
-    public string packageName;
+    [SerializeField] private string packageName;
 
     private bool rateGameOpened;
     private AnimationController animationController;
 
     void Start()
     {
-        animationController = this.GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     public void OpenWindow()

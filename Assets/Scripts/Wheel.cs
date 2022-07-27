@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class Wheel : MonoBehaviour
 {
-    public TextMeshProUGUI timeText;
-    public Button spinButton;
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private Button spinButton;
     private DateTime lastSpin;
-    public Transform wheel;
-    public float timeToWait;
-    public TextMeshProUGUI wonText;
+    [SerializeField] private Transform wheel;
+    [SerializeField] private float timeToWait;
+    [SerializeField] private TextMeshProUGUI wonText;
 
     //wheel spinning
     private int randomvalue;
@@ -22,8 +22,8 @@ public class Wheel : MonoBehaviour
 
     private int wonKeys = 0;
     private float totalAngle;
-    public int section;
-    public int[] prizeValues;
+    [SerializeField] private int section;
+    [SerializeField] private int[] prizeValues;
 
     private void Start()
     {

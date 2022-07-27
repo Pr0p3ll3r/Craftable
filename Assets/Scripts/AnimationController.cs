@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    Animation anim;
+    private Animation anim;
 
     void Start()
     {
-        anim = this.GetComponent<Animation>();
+        anim = GetComponent<Animation>();
     }
     
     // Playing idle animation for menu components.

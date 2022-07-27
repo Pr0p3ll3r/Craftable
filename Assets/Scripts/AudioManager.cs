@@ -2,11 +2,11 @@ using System;
 using UnityEngine.Audio;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
-
+public class AudioManager : MonoBehaviour 
+{
 	public static AudioManager Instance;
 
-	public Sound[] sounds;
+	[SerializeField] private Sound[] sounds;
 
 	private void Awake()
 	{
@@ -43,5 +43,4 @@ public class AudioManager : MonoBehaviour {
 
 		s.source.Play();
 	}
-
 }

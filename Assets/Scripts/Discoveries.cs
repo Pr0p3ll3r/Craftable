@@ -8,15 +8,15 @@ public class Discoveries : MonoBehaviour
 {
 	public static Discoveries Instance;
 
-	public GameObject discoverUI;
-	public Animator discoverAnimator;
-	public Image icon;
-	public TextMeshProUGUI itemName;
-	public TextMeshProUGUI description;
-	public TextMeshProUGUI title;
+	[SerializeField] private GameObject discoverUI;
+	[SerializeField] private Animator discoverAnimator;
+	[SerializeField] private Image icon;
+	[SerializeField] private TextMeshProUGUI itemName;
+	[SerializeField] private TextMeshProUGUI description;
+	[SerializeField] private TextMeshProUGUI title;
 
-	public List<Item> discoveredItems;
-	public List<Item> nextToDiscover;
+	[SerializeField] private List<Item> discoveredItems;
+	[SerializeField] private List<Item> nextToDiscover;
 
 	private bool isDiscovering = false;
 	private Item tempItem;

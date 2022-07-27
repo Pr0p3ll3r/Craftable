@@ -6,9 +6,9 @@ using UnityEngine;
 public class Hint : MonoBehaviour
 {
     private AnimationController animationController;
-    public TextMeshProUGUI errorText;
-    public GameObject adImage;
-    public GameObject text;
+    [SerializeField] private TextMeshProUGUI errorText;
+    [SerializeField] private GameObject adImage;
+    [SerializeField] private GameObject text;
 
     private bool clicked = false;
     private int totalItems;

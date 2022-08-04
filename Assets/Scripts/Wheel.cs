@@ -20,6 +20,7 @@ public class Wheel : MonoBehaviour
     private float timeInterval;
     private int finalAngle;
 
+    private bool isSpinning = false;
     private int wonKeys = 0;
     private float totalAngle;
     [SerializeField] private int section;
@@ -40,19 +41,17 @@ public class Wheel : MonoBehaviour
 
     private void Update()
     {
-        if (!spinButton.IsInteractable())
+        if (IsSpinReady())
         {
-            if(IsSpinReady())
-            {
-                spinButton.interactable = true;
-                timeText.text = $"00:00:00";
-                return;
-            }
-
+            spinButton.interactable = true;
+            timeText.text = $"00:00:00";
+        }
+        else if(!isSpinning)
+        {
             TimeSpan diff = DateTime.Now - lastSpin;
             double secondLeft = timeToWait - diff.TotalSeconds;
 
-            string time = "";
+            string time;
 
             string h = ((int)secondLeft / 3600).ToString("00");
             secondLeft -= ((int)secondLeft / 3600) * 3600;
@@ -65,6 +64,9 @@ public class Wheel : MonoBehaviour
 
     private bool IsSpinReady()
     {
+        if (isSpinning)
+            return false;
+
         TimeSpan diff = DateTime.Now - lastSpin;
         double secondLeft = timeToWait - diff.TotalSeconds;
         
@@ -82,6 +84,7 @@ public class Wheel : MonoBehaviour
 
     private IEnumerator Spin()
     {
+        isSpinning = true;
         spinButton.interactable = false;
         randomvalue = UnityEngine.Random.Range(200, 300);
         timeInterval = 0.0001f * Time.deltaTime * 2;
@@ -126,7 +129,7 @@ public class Wheel : MonoBehaviour
 
         lastSpin = DateTime.Now;
         PlayerPrefs.SetString("LastSpin", lastSpin.ToString());
-        spinButton.interactable = false;
+        isSpinning = false;
     }
 
     public static DateTime GetNetTime()

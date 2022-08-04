@@ -40,7 +40,7 @@ public class Tutorial : MonoBehaviour
     public void NextText()
     {
         AudioManager.Instance.Play("Click");
-        StopCoroutine(co);
+        if(co != null) StopCoroutine(co);
         if (tut == 1)
         {
             co = StartCoroutine(ShowText(tut2));

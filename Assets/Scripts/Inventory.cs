@@ -24,7 +24,6 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
         //check if it's first time playing
         if (PlayerPrefs.GetInt("New") == 0)
         {

@@ -16,7 +16,7 @@ public class Hint : MonoBehaviour
     void Start()
     {
         totalItems = Resources.LoadAll<Item>("Items").Length;
-        animationController = this.GetComponent<AnimationController>();
+        animationController = GetComponent<AnimationController>();
     }
 
     public void GetHint()
@@ -49,5 +49,12 @@ public class Hint : MonoBehaviour
             text.SetActive(true);
             clicked = false;
         }
+    }
+
+    public void ResetMenu()
+    {
+        clicked = false;
+        adImage.SetActive(false);
+        text.SetActive(true);       
     }
 }

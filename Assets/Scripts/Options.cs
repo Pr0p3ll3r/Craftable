@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    public Sprite soundOn, soundOff, vibrationOn, vibrationOff, musicOn, musicOff;
-    public Image soundImage, vibrationImage, musicImage;
-    public AudioMixer audioMixer;
-    public TextMeshProUGUI sortText;
+    [SerializeField] private Sprite soundOn, soundOff, vibrationOn, vibrationOff, musicOn, musicOff;
+    [SerializeField] private Image soundImage, vibrationImage, musicImage;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private TextMeshProUGUI sortText;
 
     void Start()
     {
-        // When game starts set the settings to the game.
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
         SetSounds();
         SetMusic();
         SetVibration();

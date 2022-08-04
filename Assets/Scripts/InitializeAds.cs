@@ -17,15 +17,20 @@ public class InitializeAds : MonoBehaviour, IUnityAdsInitializationListener, IUn
     {
         Instance = this;
         Advertisement.Initialize(gameId, testMode, this);
-        Advertisement.Load(videoPlacementId, this);
-        Advertisement.Load(rewardedVideoPlacementId, this);
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Load(bannerPlacementId);
     }
 
     void Start()
-    {           
-        Advertisement.Banner.Show(bannerPlacementId);
+    {
+        Advertisement.Load(videoPlacementId, this);
+        Advertisement.Load(rewardedVideoPlacementId, this);
+        
+        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
+        BannerLoadOptions options = new BannerLoadOptions
+        {
+            loadCallback = OnBannerLoaded,
+            errorCallback = OnBannerError
+        };
+        Advertisement.Banner.Load(bannerPlacementId, options);
     }
 
     public void ShowInterstitialAd()
@@ -36,6 +41,7 @@ public class InitializeAds : MonoBehaviour, IUnityAdsInitializationListener, IUn
 
     public void ShowRewardedVideo()
     {
+        Debug.Log("Showing Ad: " + rewardedVideoPlacementId);
         Advertisement.Show(rewardedVideoPlacementId, this);
     }
 
@@ -46,6 +52,13 @@ public class InitializeAds : MonoBehaviour, IUnityAdsInitializationListener, IUn
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             Crafter.Instance.Hint();
+            // Load another ad:
+            Advertisement.Load(rewardedVideoPlacementId, this);
+        }
+
+        if (videoPlacementId.Equals(placementId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+        {
+            Debug.Log("Unity Ads Video Ad Completed");
             // Load another ad:
             Advertisement.Load(rewardedVideoPlacementId, this);
         }
@@ -85,5 +98,15 @@ public class InitializeAds : MonoBehaviour, IUnityAdsInitializationListener, IUn
     {
         
     }
+
+    void OnBannerLoaded()
+    {
+        Debug.Log("Banner loaded");
+        Advertisement.Banner.Show(bannerPlacementId);
+    }
+
+    void OnBannerError(string message)
+    {
+        Debug.Log($"Banner Error: {message}");
+    }
 }
-    
